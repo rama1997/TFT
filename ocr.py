@@ -43,7 +43,7 @@ def run_OCR(im, coord, whitelist) -> str:
     return pytesseract.image_to_string(img, config = f'--oem 3 --psm 7 -c tessedit_char_whitelist= {whitelist}')
 
 # match input name to champions if similar enough
-def find_similar_name(input) -> str:
+def find_similar_string(input) -> str:
     for champ in tft_assets.champions:
         if SequenceMatcher(a=input,b=champ).ratio() >= 0.7:
             return champ
